@@ -21,4 +21,10 @@ int main(int argc char *argv[])
 /**exit(EXIT FAILURE);
 compare first word of each line in program against header file, first one that doesn't match returns error counter for line number?
 /**}
+*/
+	instruction_t mi[] = {
+		{"push", push},
+		{"pall", pall},
+		{NULL, NULL}
+	};
 }
