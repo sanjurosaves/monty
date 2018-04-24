@@ -19,5 +19,6 @@ int main(int argc char *argv[])
 /**{
 /**printf("L%d: unknown instruction %s", <line number> <opcode>);*/
 /**exit(EXIT FAILURE);
+compare first word of each line in program against header file, first one that doesn't match returns error counter for line number?
 /**}
 }
