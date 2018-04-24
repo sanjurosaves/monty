@@ -14,6 +14,7 @@ int main(int argc char *argv[])
 		printf("Error: Can't open file %s", argv[1]);
 		exit(EXIT_FAILURE);
 	}
+
 /** if (instructions in file are not in header)*/
 /**{
 /**printf("L%d: unknown instruction %s", <line number> <opcode>);*/
