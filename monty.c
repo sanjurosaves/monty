@@ -24,14 +24,17 @@ int main(int argc, char *argv[])
 	char_count = getline(&buf, &buf_size, fs);
 	if (char_count == -1)
 	{
-		free (buf);
+		free(buf);
 		printf("Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-/*	close(fs); */
-
+	/* tokenize */
+	/* check first word against list of opfuncs */
+	/* return error if matching function pointer not found */
 	printf("%s\n", buf);
+	free(buf);
+
+	fclose(fs);
 
 	return (0);
-
 }
