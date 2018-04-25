@@ -2,7 +2,7 @@
 int main(int argc, char *argv[])
 {
 	int fd, char_count;
-	char *buf;
+	char *buf = NULL;
 	size_t buf_size = 0;
 	FILE* fs;
 
@@ -21,6 +21,7 @@ int main(int argc, char *argv[])
 	close(fd);
 
 	fs = fopen(argv[1], "r");
+
 	char_count = getline(&buf, &buf_size, fs);
 	if (char_count == -1)
 	{
@@ -32,6 +33,7 @@ int main(int argc, char *argv[])
 	/* check first word against list of opfuncs */
 	/* return error if matching function pointer not found */
 	printf("%s\n", buf);
+
 	free(buf);
 
 	fclose(fs);
