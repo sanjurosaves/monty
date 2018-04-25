@@ -1,7 +1,7 @@
 #include "monty.h"
 int main(int argc, char *argv[])
 {
-	int fd, char_count;
+	int fd, char_count = 0;
 	char *buf = NULL;
 	size_t buf_size = 0;
 	FILE* fs;
@@ -22,17 +22,24 @@ int main(int argc, char *argv[])
 
 	fs = fopen(argv[1], "r");
 
-	char_count = getline(&buf, &buf_size, fs);
-	if (char_count == -1)
+	while (char_count != -1)
+	{
+		if (buf != NULL)
+			free(buf);
+		buf = NULL;
+		char_count = getline(&buf, &buf_size, fs);
+		/* tokenize */
+                /* check first word against list of opfuncs */
+		/* return error if matching function pointer not found */
+		/* printf("%s\n", buf); */
+	}
+
+	if (buf == NULL)
 	{
 		free(buf);
 		printf("Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-	/* tokenize */
-	/* check first word against list of opfuncs */
-	/* return error if matching function pointer not found */
-	printf("%s\n", buf);
 
 	free(buf);
 
