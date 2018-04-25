@@ -21,6 +21,7 @@ int main(int argc, char *argv[])
 	char *buf = NULL;
 	size_t buf_size = 0;
 	FILE* fs;
+	stack_t *stack = NULL;
 
 	if (argc != 2)
 	{
@@ -52,18 +53,16 @@ int main(int argc, char *argv[])
 		/* tokenize */
 		retd = vread(buf, "%s %[^\n]%s", instr, value);
 		if (retd == 1)
-			printf("%d: %s\n", lineno, instr);
+			/* printf("%d: %s\n", lineno, instr) */;
 		else if (retd == 2)
 		{
-			printf("%d: %s %d\n", lineno, instr, atoi(value));
+			/* printf("%d: %s %d\n", lineno, instr, atoi(value));*/
 			global = atoi(value);
-			printf("Global: %d\n", global);
 		}
 
-                get_mi_func(instr, lineno);
+                get_mi_func(instr, lineno, &stack);
 
 		/* return error if matching function pointer not found */
-		/* printf("%s\n", buf); */
 	}
 
 	if (buf == NULL)

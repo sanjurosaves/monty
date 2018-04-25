@@ -1,7 +1,6 @@
 #include "monty.h"
-int get_mi_func(char *mi, unsigned int n)
+int get_mi_func(char *mi, unsigned int n, stack_t **stack)
 {
-	stack_t *stack = NULL;
 	unsigned int i = 0;
 	instruction_t valid_mis[] = {
                 {"push", push},
@@ -12,7 +11,7 @@ int get_mi_func(char *mi, unsigned int n)
 	while (valid_mis[i].opcode != NULL)
 	{
 		if (strcmp(mi, valid_mis[i].opcode) == 0)
-		    valid_mis[i].f(&stack, n);
+		    valid_mis[i].f(&*stack, n);
 		i++;
 	}
 

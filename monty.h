@@ -50,6 +50,6 @@ extern int global;
 int vread(const char *buffer, char *fmt, ...);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
-int get_mi_func(char *mi, unsigned int n);
+int get_mi_func(char *mi, unsigned int n, stack_t **stack);
 
 #endif
