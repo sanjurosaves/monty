@@ -1,5 +1,7 @@
 #include "monty.h"
 
+int global = 0;
+
 int vread(const char *buffer, char *fmt, ...)
 {
 	int rc;
@@ -52,7 +54,11 @@ int main(int argc, char *argv[])
 		if (retd == 1)
 			printf("%d: %s\n", lineno, instr);
 		else if (retd == 2)
+		{
 			printf("%d: %s %d\n", lineno, instr, atoi(value));
+			global = atoi(value);
+			printf("Global: %d\n", global);
+		}
 
                 get_mi_func(instr, lineno);
 
