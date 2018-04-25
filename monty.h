@@ -44,8 +44,9 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-int vread(const char *buffer, char *fmt, ...)
+int vread(const char *buffer, char *fmt, ...);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
+int get_mi_func(char *mi, unsigned int n);
 
 #endif
