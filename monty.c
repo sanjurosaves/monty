@@ -12,6 +12,7 @@ int vread(const char *buffer, char *fmt, ...)
 
 int main(int argc, char *argv[])
 {
+	unsigned int lineno = 0;
 	int fd, retd, char_count = 0;
 	char instr[ISIZE] = {0};
 	char value[VSIZE] = {0};
@@ -44,14 +45,17 @@ int main(int argc, char *argv[])
 		if (char_count == -1)
 			break;
 
+		lineno++;
+
 		/* tokenize */
 		retd = vread(buf, "%s %[^\n]%s", instr, value);
 		if (retd == 1)
-			printf("%s\n", instr);
+			printf("%d: %s\n", lineno, instr);
 		else if (retd == 2)
-			printf("%s %d\n", instr, atoi(value));
+			printf("%d: %s %d\n", lineno, instr, atoi(value));
 
-                /* check first word against list of opfuncs */
+                get_mi_func(instr, lineno);
+
 		/* return error if matching function pointer not found */
 		/* printf("%s\n", buf); */
 	}
