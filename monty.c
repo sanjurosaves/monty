@@ -53,16 +53,18 @@ int main(int argc, char *argv[])
 		/* tokenize */
 		retd = vread(buf, "%s %[^\n]%s", instr, value);
 		if (retd == 1)
-			/* printf("%d: %s\n", lineno, instr) */;
+		{
+			printf("%d: %s\n", lineno, instr);
+			get_mi_func(instr, lineno, &stack);
+		}
 		else if (retd == 2)
 		{
-			/* printf("%d: %s %d\n", lineno, instr, atoi(value));*/
+			printf("%d: %s %d\n", lineno, instr, atoi(value));
 			global = atoi(value);
+			get_mi_func(instr, lineno, &stack);
 		}
 
-                get_mi_func(instr, lineno, &stack);
-
-		/* return error if matching function pointer not found */
+                /* return error if matching function pointer not found */
 	}
 
 	if (buf == NULL)
