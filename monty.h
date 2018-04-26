@@ -69,6 +69,6 @@ void fall(stack_t **stack);
 /* error handling */
 void usage_verify(int argc);
 void access_verify(char *arg);
-void malloc_fail(char *buf);
+void malloc_fail(char *buf, FILE *fs, stack_t **stack);
 
 #endif

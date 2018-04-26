@@ -34,11 +34,13 @@ void access_verify(char *arg)
  *@buf: buffer malloced for
  *Return: none/void
  */
-void malloc_fail(char *buf)
+void malloc_fail(char *buf, FILE *fs, stack_t **stack)
 {
 	if (buf == NULL)
 	{
 		free(buf);
+		fclose(fs);
+		fall(&*stack);
 		printf("Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}

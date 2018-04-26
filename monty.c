@@ -79,7 +79,7 @@ int main(int argc, char *argv[])
 		}
 	}
 
-	malloc_fail(buf);
+	malloc_fail(buf, fs, &stack);
 	free(buf);
 	fclose(fs);
 	fall(&stack);
