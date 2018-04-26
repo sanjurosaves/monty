@@ -40,19 +40,24 @@ int main(int argc, char *argv[])
 			if (cmpresult == 0)
 			{
 				printf("L%d: usage: push integer\n", lineno);
+				fall(&stack);
+				free(buf);
+				fclose(fs);
 				exit(EXIT_FAILURE);
 			}
 			get_mi_func(instr, lineno, &stack);
 		}
 		else if (retd == 2)
 		{
-			printf("%d: %s %s\n", lineno, instr, value);
 			for (i = 0; value[i] != '\0'; i++)
 			{
 				numcheck = isdigit(value[i]);
 				if (numcheck == 0)
 				{
 					printf("L%d: usage: push integer\n", lineno);
+					fall(&stack);
+					free(buf);
+					fclose(fs);
 					exit(EXIT_FAILURE);
 				}
 			}
@@ -65,6 +70,7 @@ int main(int argc, char *argv[])
 	malloc_fail(buf);
 	free(buf);
 	fclose(fs);
+	fall(&stack);
 
 	return (0);
 }

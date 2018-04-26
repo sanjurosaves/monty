@@ -10,7 +10,7 @@
 int get_mi_func(char *mi, unsigned int n, stack_t **stack)
 {
 	int cmpresult;
-	unsigned int i = 0;
+	unsigned int i = 0, flag = 0;
 	instruction_t valid_mis[] = {
 		{"push", push},
 		{"pall", pall},
@@ -26,8 +26,17 @@ int get_mi_func(char *mi, unsigned int n, stack_t **stack)
 	{
 		cmpresult = strcmp(mi, valid_mis[i].opcode);
 		if (cmpresult == 0)
+		{
+			flag = 1;
 			valid_mis[i].f(&*stack, n);
+		}
 		i++;
+	}
+
+	if (flag == 0)
+	{
+		printf("L%d: unknown instruction %s\n", n, mi);
+		exit(EXIT_FAILURE);
 	}
 
 	return (0);

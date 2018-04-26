@@ -63,6 +63,7 @@ void sub(stack_t **stack, unsigned int line_number);
 int vread(const char *buffer, char *fmt, ...);
 int get_mi_func(char *mi, unsigned int n, stack_t **stack);
 int stack_len(stack_t *h, unsigned int line_number);
+void fall(stack_t **stack);
 
 /* error handling */
 void usage_verify(int argc);
