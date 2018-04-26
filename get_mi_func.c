@@ -17,6 +17,8 @@ int get_mi_func(char *mi, unsigned int n, stack_t **stack)
 		{"pint", pint},
 		{"nop", nop},
 		{"pop", pop},
+		{"add", add},
+		{"sub", sub},
 		{NULL, NULL}
 	};
 
