@@ -58,7 +58,7 @@ int main(int argc, char *argv[])
 			for (i = 0; value[i] != '\0'; i++)
 			{
 				numcheck = isdigit(value[i]);
-				if (numcheck == 0)
+				if (numcheck == 0  && value[0] != '-')
 				{
 					printf("L%d: usage: push integer\n", lineno);
 					fall(&stack);
