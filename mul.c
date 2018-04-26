@@ -15,6 +15,7 @@ void mul(stack_t **stack, unsigned int line_number)
 	length = stack_len(*stack, line_number);
 	if (length < 2)
 	{
+		printf("L%u: can't mul, stack too short", line_number);
 		exit(EXIT_FAILURE);
 	}
 	prod = (temp->next->n - temp->n);
