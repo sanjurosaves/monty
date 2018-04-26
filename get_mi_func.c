@@ -5,6 +5,9 @@ int get_mi_func(char *mi, unsigned int n, stack_t **stack)
 	instruction_t valid_mis[] = {
                 {"push", push},
 		{"pall", pall},
+		{"pint", pint},
+		{"nop", nop},
+		{"pop", pop},
 		{NULL, NULL}
 	};
 
