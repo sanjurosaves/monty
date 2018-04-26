@@ -5,7 +5,7 @@
  * @stack: double pointer to stack
  * @n: line number
  * @mi: instruction word
- * Return: 0 upon success
+ * Return: 0 upon success, -1 upon unknown instruction
  */
 int get_mi_func(char *mi, unsigned int n, stack_t **stack)
 {
@@ -37,7 +37,7 @@ int get_mi_func(char *mi, unsigned int n, stack_t **stack)
 	if (flag == 0)
 	{
 		printf("L%d: unknown instruction %s\n", n, mi);
-		exit(EXIT_FAILURE);
+		return (-1);
 	}
 
 	return (0);
