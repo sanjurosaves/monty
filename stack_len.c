@@ -2,17 +2,18 @@
 /**
  *stack_len - get length of a doubly linked list
  *@h: pointer to head of linked list
+ *@line_number: line number passed from main for error handling
  *Return: number of nodes
  */
 int stack_len(stack_t *h, unsigned int line_number)
 {
 	int count;
-        stack_t *temp;
+	stack_t *temp;
 	(void)line_number;
-        temp = h;
+	temp = h;
 
-        for (count = 0; temp != NULL; count++)
-                temp = temp->next;
+	for (count = 0; temp != NULL; count++)
+		temp = temp->next;
 
-        return count;
+	return (count);
 }

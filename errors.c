@@ -1,5 +1,9 @@
 #include "monty.h"
-
+/**
+ * usage_verify - print usage error to standard input
+ *@argc: number of arguments passed to function
+ *Return: none/void
+ */
 void usage_verify(int argc)
 {
 	if (argc != 2)
@@ -8,7 +12,11 @@ void usage_verify(int argc)
 		exit(EXIT_FAILURE);
 	}
 }
-
+/**
+ * access_verify - print access error to standard input
+ *@arg: file on which access is attempted
+ *Return: none/void
+ */
 void access_verify(char *arg)
 {
 	int fd = open(arg, O_RDONLY);
@@ -21,7 +29,11 @@ void access_verify(char *arg)
 
 	close(fd);
 }
-
+/**
+ * malloc_fail - print malloc error to standard input
+ *@buf: buffer malloced for
+ *Return: none/void
+ */
 void malloc_fail(char *buf)
 {
 	if (buf == NULL)
@@ -39,7 +51,8 @@ void malloc_fail(char *buf)
 int unknown_mi(void)
 {
 
-/* if (instructions in file are not in header)
+/**
+ * if (instructions in file are not in header)
  *
  * {printf("L%d: unknown instruction %s", <line number> <opcode>);
  * exit(EXIT FAILURE);
