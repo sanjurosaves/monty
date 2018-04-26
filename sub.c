@@ -17,7 +17,7 @@ void sub(stack_t **stack, unsigned int line_number)
 	{
 		exit(EXIT_FAILURE);
 	}
-	diff += ((-1 * temp->n) + temp->next->n);
+	diff = (temp->next->n - temp->n);
 	pop(stack, line_number);
 	(*stack)->n = diff;
 }
