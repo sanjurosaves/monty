@@ -10,13 +10,14 @@ int global = 0;
  */
 int main(int argc, char *argv[])
 {
-	unsigned int lineno = 0;
-	int retd, char_count = 0;
+	unsigned int i, lineno = 0;
+	int retd, char_count, cmpresult, numcheck = 3003;
 	char instr[ISIZE] = {0}, value[VSIZE] = {0};
 	char *buf = NULL;
 	size_t buf_size = 0;
 	FILE *fs;
 	stack_t *stack = NULL;
+	long val;
 
 	usage_verify(argc);
 	access_verify(argv[1]);
@@ -34,10 +35,29 @@ int main(int argc, char *argv[])
 		lineno++;
 		retd = vread(buf, "%s %[^\n]%s", instr, value);
 		if (retd == 1)
+		{
+			cmpresult = strcmp(instr, "push");
+			if (cmpresult == 0)
+			{
+				printf("L%d: usage: push integer\n", lineno);
+				exit(EXIT_FAILURE);
+			}
 			get_mi_func(instr, lineno, &stack);
+		}
 		else if (retd == 2)
 		{
-			global = atoi(value);
+			printf("%d: %s %s\n", lineno, instr, value);
+			for (i = 0; value[i] != '\0'; i++)
+			{
+				numcheck = isdigit(value[i]);
+				if (numcheck == 0)
+				{
+					printf("L%d: usage: push integer\n", lineno);
+					exit(EXIT_FAILURE);
+				}
+			}
+			val = strtol(value, NULL, 10);
+			global = val;
 			get_mi_func(instr, lineno, &stack);
 		}
 	}

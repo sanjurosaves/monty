@@ -10,6 +10,9 @@
 #include <stdarg.h>
 #include <stddef.h>
 #include <string.h>
+#include <limits.h>
+#include <errno.h>
+#include <ctype.h>
 
 #define ISIZE  4
 #define VSIZE 88
