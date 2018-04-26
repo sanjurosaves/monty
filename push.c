@@ -1,14 +1,14 @@
 #include "monty.h"
 /**
- *
- *
- *
- *
+ * push - pushes an element to the stack
+ * @line_number: line number
+ * @stack: double pointer to top of stack
+ * Return: void
  */
 void push(stack_t **stack, unsigned int line_number)
 {
 	unsigned int n = global;
-        stack_t *new;
+	stack_t *new;
 
 	(void)(line_number);
 
@@ -30,6 +30,4 @@ void push(stack_t **stack, unsigned int line_number)
 	}
 
 	*stack = new;
-
-	return;
 }
