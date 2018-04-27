@@ -21,6 +21,7 @@ int get_mi_func(char *mi, unsigned int n, stack_t **stack)
 		{"sub", sub},
 		{"swap", swap},
 		{"mul", mul},
+		{"mod", mod},
 		{NULL, NULL}
 	};
 
