@@ -1,9 +1,9 @@
 #include "monty.h"
 /**
- * sub - subtracts data from top two stack elements
+ * mul - multiplies data from top two stack elements
  * @stack: pointer to the head of the list
- *@line_number: current line number in main for error handling
- *Return: none/void
+ * @line_number: current line number in main for error handling
+ * Return: none/void
  *
  */
 void mul(stack_t **stack, unsigned int line_number)
