@@ -17,8 +17,8 @@ void push(stack_t **stack, unsigned int line_number)
 	/*check malloc*/
 	if (new == NULL)
 	{
-		printf("Error: malloc failed\n")
-		fall(*stack);
+		printf("Error: malloc failed\n");
+		fall(&*stack);
 		exit(EXIT_FAILURE);
 	}
 
