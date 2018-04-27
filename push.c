@@ -16,7 +16,11 @@ void push(stack_t **stack, unsigned int line_number)
 	new = malloc(sizeof(stack_t));
 	/*check malloc*/
 	if (new == NULL)
-		return;
+	{
+		printf("Error: malloc failed\n")
+		fall(*stack);
+		exit(EXIT_FAILURE);
+	}
 
 	/*assign members of new node*/
 	new->n = n;
