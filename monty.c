@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
 				fclose(fs);
 				exit(EXIT_FAILURE);
 			}
-			if (get_mi_func(instr, lineno, &stack) == -1)
+			if (get_mi_func(instr, lineno, &stack) <= -1)
 			{
 				fall(&stack);
 				free(buf);
@@ -74,7 +74,7 @@ int main(int argc, char *argv[])
 			}
 			val = strtol(value, NULL, 10);
 			global = val;
-			if (get_mi_func(instr, lineno, &stack) == -1)
+			if (get_mi_func(instr, lineno, &stack) <= -1)
 			{
 				fall(&stack);
 				free(buf);
