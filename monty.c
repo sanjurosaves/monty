@@ -57,6 +57,13 @@ int main(int argc, char *argv[])
 		{
 			for (i = 0; value[i] != '\0'; i++)
 			{
+				/** printf("Value: %s", value);
+				 * getchar(); */
+				if (value[i] == ' ')
+					continue;
+				if ((value[0] == 'p' && value[1] == 'u' &&
+				     value[2] == 's' && value[3] =='h') == 0)
+					continue;
 				numcheck = isdigit(value[i]);
 				if (numcheck == 0  && value[0] != '-')
 				{
