@@ -10,6 +10,7 @@
 void pchar(stack_t **stack, unsigned int line_number)
 {
 	int letter = (*stack)->n;
+
 	if (!(*stack))
 	{
 		printf("L%u: can't pchar, stack empty\n", line_number);
