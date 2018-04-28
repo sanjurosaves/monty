@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- * str - prints the string starting at the top of the stack
+ *pstr - prints the string starting at the top of the stack
  *
  * @stack: double pointer to top of stack
  * @line_number: current line number for error handling
