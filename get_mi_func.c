@@ -23,6 +23,7 @@ int get_mi_func(char *mi, unsigned int n, stack_t **stack)
 		{"mul", mul},
 		{"pchar", pchar},
 		{"mod", mod},
+		{"pstr", pstr},
 		{NULL, NULL}
 	};
 
