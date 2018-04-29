@@ -18,6 +18,8 @@ void push(stack_t **stack, unsigned int line_number)
 	if (new == NULL)
 	{
 		free(new);
+		printf("Error: malloc failed\n");
+		global = -696969;
 		return;
 	}
 

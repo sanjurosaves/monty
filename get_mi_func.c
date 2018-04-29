@@ -5,7 +5,7 @@
  * @stack: double pointer to stack
  * @n: line number
  * @mi: instruction word
- * Return: 0 upon success, -1 upon unknown instruction
+ * Return: 0 upon success, -1 upon unknown instruction, -2 upon malloc error
  */
 int get_mi_func(char *mi, unsigned int n, stack_t **stack)
 {
@@ -34,6 +34,8 @@ int get_mi_func(char *mi, unsigned int n, stack_t **stack)
 		{
 			flag = 1;
 			valid_mis[i].f(&*stack, n);
+			if (global == -696969)
+				return (-2);
 		}
 		i++;
 	}
