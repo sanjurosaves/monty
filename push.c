@@ -14,9 +14,12 @@ void push(stack_t **stack, unsigned int line_number)
 
 	/* create space for new node */
 	new = malloc(sizeof(stack_t));
-	/*check malloc*/
+       	/*check malloc*/
 	if (new == NULL)
+	{
+		free(new);
 		return;
+	}
 
 	/*assign members of new node*/
 	new->n = n;
